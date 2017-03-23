@@ -1,0 +1,13 @@
+[{
+  "name": "Max's Awesome Team",
+  "members": [
+      {
+        "github": "omgmog",
+        "name": "Max Glenister"
+      }
+    ],
+  "hacks": [
+    "http://status.omgmog.net/",
+    "https://blog.omgmog.net/line-finder/"
+  ]
+}]

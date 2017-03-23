@@ -1,0 +1,81 @@
+---
+layout: null
+---
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Jekyll JSON test</title>
+  <style>
+    html {
+      font-size: calc(1em + .2vmax);
+      font-family: Helvetica, sans-serif;
+      color: #555;
+      background: #fafafa;
+      line-height: 1.5;
+    }
+    body {
+      max-width: 60%;
+      margin: 5%;
+    }
+    hr {
+      height: .2em;
+      max-width: 80%;
+      margin: 1rem 10%;
+      border: 0;
+      background: rgba(100,100,100,.1);
+    }
+    h2, h3 {
+      margin: 1rem 0;
+    }
+    h2 {
+      font-size: 1.5rem;
+    }
+    h3 {
+      font-size: 1.2rem;
+    }
+    p {
+      margin: 0;
+    }
+    ul + p {
+      margin-top: 1rem;
+    }
+
+    @media (max-width: 800px) {
+      body {
+        max-width: 90%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <p>Okay so this is using Jekyll's data structure stuff rather than collections. It means participants can use pure JSON, and we can then take it in to Jekyll easily.</p>
+  {% for datas in site.data %}
+  {% for data in datas %}
+  {% assign length = data | size %}
+  {% if length < 2 %}
+      <h2>{{ data[0].name }}</h2>
+      {% if data[0].members %}
+        <h3>Members:</h3>
+        <ul>
+        {% for member in data[0].members %}
+          <li>{{ member.name }} (<a href="https://github.com/{{ member.github }}">@{{ member.github }}</a>)</li>
+        {% endfor %}
+        </ul>
+      {% endif %}
+      {% if data[0].hacks %}
+        <h3>Hacks:</h3>
+        <ul>
+        {% for hack in data[0].hacks %}
+          <li><a href="{{ hack }}">{{ hack }}</a></li>
+        {% endfor %}
+        </ul>
+      {% endif %}
+      <hr>
+    {% endif %}
+  {% endfor %}
+</body>
+</html>
+{% endfor %}

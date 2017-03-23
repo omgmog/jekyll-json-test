@@ -1,0 +1,12 @@
+[{
+  "name": "Ben's Awesome Team",
+  "members": [
+      {
+        "github": "benfoxall",
+        "name": "Ben Foxall"
+      }
+    ],
+  "hacks": [
+    "https://benjaminbenben.com/webgl-hacks/"
+  ]
+}]
